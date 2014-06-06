@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jun 06, 2014 at 05:15 PM
+-- Generation Time: Jun 06, 2014 at 05:36 PM
 -- Server version: 5.5.16
 -- PHP Version: 5.3.8
 
@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS `skills` (
   `name` varchar(50) DEFAULT NULL,
   `IdCat` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=143 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=211 ;
 
 --
 -- Dumping data for table `skills`
@@ -179,7 +179,75 @@ INSERT INTO `skills` (`id`, `name`, `IdCat`) VALUES
 (139, 'TargetLink', 39),
 (140, 'DataCAD', 39),
 (141, 'VectorWorks', 39),
-(142, 'Cadelec', 39);
+(142, 'Cadelec', 39),
+(143, 'FoxPro', 42),
+(144, 'PostGreSQL', 42),
+(145, 'SQL Server', 42),
+(146, 'Sybase', 42),
+(147, 'Lotus Approach', 42),
+(148, 'Interbase', 42),
+(149, 'MS Access', 42),
+(150, 'MySQL', 42),
+(151, 'Oracle', 42),
+(152, 'Paradox', 42),
+(153, 'Progress OpenEdge Database', 42),
+(154, 'MongoDB', 42),
+(155, 'BDE', 42),
+(156, 'Dbase', 42),
+(157, 'FireBirdSQL', 42),
+(158, 'Oracle Spatial', 42),
+(159, 'Informix', 42),
+(160, 'TOAD', 42),
+(161, 'ADO.NET', 42),
+(162, 'IBM DB2', 42),
+(163, 'Transact-SQL', 42),
+(164, 'DBVisualizer', 42),
+(165, 'DBArtisan', 42),
+(166, 'PHPMyAdmin', 42),
+(167, 'OpenBase', 42),
+(168, 'SQLite', 42),
+(169, 'SQL Server Replication', 42),
+(170, 'RapidSQL', 42),
+(171, 'SQuirrel SQL', 42),
+(172, 'CAST SQLBuilder', 42),
+(173, 'Gembase', 42),
+(174, 'CSQL', 42),
+(175, 'FrontBase', 42),
+(176, 'Oracle Recovery Manager (RMAN)', 42),
+(177, 'Genesis', 37),
+(178, 'Open Text Content Server', 37),
+(179, 'FOP', 37),
+(180, 'Cobra Image Router', 37),
+(181, 'Joomla', 37),
+(182, 'DSpace', 37),
+(183, 'Symantec Enterprise Vault', 37),
+(184, 'Jetspeed', 37),
+(185, 'Hyland OnBase', 37),
+(186, 'Drupal', 37),
+(187, 'Cassiope', 35),
+(188, 'SAGE', 35),
+(189, 'Alienor', 35),
+(190, 'Ciel', 35),
+(191, 'JD Edwards', 35),
+(192, 'OneWorld', 35),
+(193, 'SAP', 35),
+(194, 'Qualiac', 35),
+(195, 'Coda', 35),
+(196, 'Etafi', 35),
+(197, 'PeopleSoft', 35),
+(198, 'Genesys', 35),
+(199, 'Arbor', 35),
+(200, 'Adonix', 35),
+(201, 'WinMentor', 35),
+(202, 'Hamor Soft', 35),
+(203, 'SanCont', 35),
+(204, 'Contab SQL', 35),
+(205, '1C', 35),
+(206, 'Abel', 35),
+(207, 'TinyERP', 35),
+(208, 'PeopleSoft Enterprise Service Automation', 35),
+(209, 'ERP GENERIX', 35),
+(210, 'Sage ERP X3', 35);
 
 -- --------------------------------------------------------
 
