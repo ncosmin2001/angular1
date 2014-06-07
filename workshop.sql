@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jun 07, 2014 at 08:54 AM
+-- Generation Time: Jun 07, 2014 at 01:16 PM
 -- Server version: 5.5.16
 -- PHP Version: 5.3.8
 
@@ -32,7 +32,14 @@ CREATE TABLE IF NOT EXISTS `roles` (
   `Role` tinyint(4) NOT NULL,
   PRIMARY KEY (`Id`),
   UNIQUE KEY `IdUser` (`IdUser`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `roles`
+--
+
+INSERT INTO `roles` (`Id`, `IdUser`, `Role`) VALUES
+(1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -332,6 +339,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `location` varchar(50) DEFAULT NULL,
   `username` varchar(50) DEFAULT NULL,
   `password` varchar(500) DEFAULT NULL,
+  `role` tinyint(4) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
@@ -339,9 +347,9 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `firstname`, `lastname`, `location`, `username`, `password`) VALUES
-(1, 'Gere', 'Arpad', 'Cluj Napoca', 'arpi', '12345'),
-(2, 'Pavel', 'Stratan', 'Alba Iulia', 'pavelescu', '12345');
+INSERT INTO `users` (`id`, `firstname`, `lastname`, `location`, `username`, `password`, `role`) VALUES
+(1, 'Gere', 'Arpad', 'Cluj Napoca', 'arpi', '12345', 0),
+(2, 'Pavel', 'Stratan', 'Alba Iulia', 'pavelescu', '12345', 0);
 
 -- --------------------------------------------------------
 
@@ -355,7 +363,17 @@ CREATE TABLE IF NOT EXISTS `users_skills` (
   `IdSkill` int(11) NOT NULL,
   `Weight` tinyint(4) NOT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+--
+-- Dumping data for table `users_skills`
+--
+
+INSERT INTO `users_skills` (`Id`, `IdUser`, `IdSkill`, `Weight`) VALUES
+(1, 1, 12, 3),
+(2, 1, 15, 4),
+(3, 1, 20, 2),
+(4, 1, 31, 5);
 
 --
 -- Constraints for dumped tables
