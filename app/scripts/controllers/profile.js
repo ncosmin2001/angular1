@@ -8,14 +8,17 @@
  * Controller of the workshopApp
  */
 angular.module('workshopApp')
-  .controller('ProfileCtrl', function ($scope) {
-    $scope.myskills = [
-      { skillName: 'PHP', skillLvl:'3',edit:false},
-      { skillName: 'AngularJS', skillLvl:'4',edit:false},
-	  { skillName: 'JQuery', skillLvl:'4',edit:false},
-	  { skillName: 'HTML', skillLvl:'2',edit:false},
-	  { skillName: 'Javascript', skillLvl:'5',edit:false}
-    ];
+  .controller('ProfileCtrl', function ($scope,$cookies,myprofileService,loginService) {
+      
+    $scope.setMySkills = function(data){
+        $scope.myskills = data;
+    };
+      
+    if(loginService.isLogged())
+    {
+        myprofileService.getUserSkills({userid:$cookies.userData},$scope.setMySkills);
+    }
+    
 	$scope.allSkill = ['PHP','HTML',"JavaScript","C#","C++","Delphi","Java","AngularJS","NodeJS","Backbone","Simfony","Drupal"];
 	
 	$scope.editSkill = function(index){
@@ -29,9 +32,7 @@ angular.module('workshopApp')
 	};
 	
 	$scope.updateMySkills = function(){
-		for(var i=0;i<$scope.myskills.length; i++){
-			$scope.myskills[i].edit = false;
-		}
+		myprofileService.updateUserSkill($scope.myskills);
 		//commit modifications to server
 	};
   });
