@@ -8,8 +8,7 @@
  *
  * Main module of the application.
  */
-angular
-  .module('workshopApp', [
+var wApp = angular.module('workshopApp', [
     'ngAnimate',
     'ngCookies',
     'ngResource',
