@@ -1,15 +1,23 @@
-wApp.service('loginService', function ($http, $rootScope) {
+wApp.service('loginService', function ($http, $cookies, $location) {
     
     this.login = function (credentials) {
-        $http({
+        return $http({
             url: '/workshop/ws/login.php',
             method: 'POST',
             data: credentials,
             headers: { 'Content-Type': 'application/json' }
         }).success(function(data){
-            $rootScope.loggedUser = data;
-            return $rootScope;
+            if(data.logged)
+            {
+                $location.path('/main');
+            }
+            $cookies.userData = data.logged;
+            return data;
         });
+    };
+    
+    this.isLogged = function(){
+      return $cookies.userData;
     };
 
 });
