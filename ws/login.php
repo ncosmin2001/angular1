@@ -27,6 +27,7 @@ else
     $response['logged'] = false;
     $response['username'] = '';
     $response['role'] = '';  
+    $response['errors'] = 'Invalid Credentials';
 }
 
 $_SESSION['logged'] = $response['logged'];

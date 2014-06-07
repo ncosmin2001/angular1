@@ -16,20 +16,29 @@
   });
   
   wApp.controller('loginCtrl', function ($scope, $location, loginService) {
-      
-    $scope.logged = false;
     $scope.info = {};
+    $scope.info.errors = 'dsafsafa';
     
     $scope.credentials = {
         username: '',
         password: ''
     };
-
-    $scope.submit = function(){
-        $scope.info = loginService.login($scope.credentials);
-        $location.path('views/main.html');
-    };
     
+    if(loginService.isLogged())
+    {
+        $location.path('/main');
+    }
+    
+    $scope.submit = function(){
+        
+        $scope.info = loginService.login($scope.credentials).then(function(response){
+            return response;
+        });
 
+         $scope.credentials = {
+            username: '',
+            password: ''
+        };
+    };
     
   });

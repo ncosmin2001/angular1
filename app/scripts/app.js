@@ -16,7 +16,7 @@ var wApp = angular.module('workshopApp', [
     'ngSanitize',
     'ngTouch'
   ])
-  .config(function ($routeProvider) {
+  .config(['$routeProvider', function ($routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/login.html',
@@ -41,18 +41,12 @@ var wApp = angular.module('workshopApp', [
       .otherwise({
         redirectTo: '/'
       });
-  })/*.run( function($rootScope, $location) {
+  }]).run( function($rootScope, $location, loginService, $cookies) {
 
-    // register listener to watch route changes
     $rootScope.$on( "$routeChangeStart", function(event, next, current) {
-      if ( $rootScope.loggedUser == null ) {
-        // no logged user, we should be going to #login
-        if ( next.$route.templateUrl == "views/login.html" ) {
-          // already going to #login, no redirect needed
-        } else {
-          // not going to #login, we should redirect now
+      if(!loginService.isLogged())
+      {
           $location.path( "/" );
-        }
-      }         
+      }  
     });
- });*/
+ });
