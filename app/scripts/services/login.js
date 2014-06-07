@@ -1,4 +1,4 @@
-wApp.service('loginService', function ($http) {
+wApp.service('loginService', function ($http, $rootScope) {
     
     this.login = function (credentials) {
         $http({
@@ -7,11 +7,9 @@ wApp.service('loginService', function ($http) {
             data: credentials,
             headers: { 'Content-Type': 'application/json' }
         }).success(function(data){
-            return data;
+            $rootScope.loggedUser = data;
+            return $rootScope;
         });
-       /* $http.post('/workshop/ws/login.php', credentials).success(function(data){
-            return data;
-        });*/
     };
 
 });

@@ -15,7 +15,7 @@
     ];
   });
   
-  wApp.controller('loginCtrl', function ($scope, loginService) {
+  wApp.controller('loginCtrl', function ($scope, $location, loginService) {
       
     $scope.logged = false;
     $scope.info = {};
@@ -27,8 +27,9 @@
 
     $scope.submit = function(){
         $scope.info = loginService.login($scope.credentials);
-        $scope.logged = $scope.info.logged;
+        $location.path('views/main.html');
     };
     
+
     
   });
