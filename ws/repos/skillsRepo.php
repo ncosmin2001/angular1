@@ -15,4 +15,4 @@ class SkillsRepo{
 }
 
 $repo = new SkillsRepo();
-echo json_encode($repo->getAllSkills);
+echo json_encode($repo->getAllSkills());
