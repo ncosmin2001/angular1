@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 include('database.php');
 include('factory.php');
 
@@ -18,11 +18,20 @@ $factory = new Factory('users',$result);
 
 if($result)
 {
-    echo(json_encode($result));
+    $response['logged'] = true;
+    $response['username'] = $result['username'];
+    $response['role'] = $result['role'];
 }
 else
 {
-    
+    $response['logged'] = false;
+    $response['username'] = '';
+    $response['role'] = '';  
 }
+
+$_SESSION['logged'] = $response['logged'];
+$_SESSION['username'] = $result['username'];
+$_SESSION['role'] = $result['role'];
+echo(json_encode($response));
 
 //$factory->objectGenerator());
