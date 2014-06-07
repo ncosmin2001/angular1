@@ -22,7 +22,11 @@ var wApp = angular.module('workshopApp', [
         templateUrl: 'views/login.html',
         controller: 'loginCtrl'
       })
-      .when('/main', {
+	  .when('/profile', {
+        templateUrl: 'views/profile.html',
+        controller: 'ProfileCtrl'
+      })
+	  .when('/main', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
