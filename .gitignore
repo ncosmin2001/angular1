@@ -3,4 +3,9 @@ dist
 .tmp
 .sass-cache
 app/bower_components
-nbproject
+/nbproject
+
+/config_local
+/objects
+/refs
+.gitignore
