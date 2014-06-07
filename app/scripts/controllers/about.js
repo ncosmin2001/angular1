@@ -38,7 +38,7 @@
  
  wApp.controller('controller1', ['$scope', '$http',
    function ($scope, $http,$event) {
-     $http.get('/angular1/ws/repos/skillsRepo.php').success(function(data) {
+     $http.get('/workshop/ws/repos/skillsRepo.php').success(function(data) {
        $scope.phones = data;
      });
  
