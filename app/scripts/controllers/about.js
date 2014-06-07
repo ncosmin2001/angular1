@@ -7,7 +7,7 @@
  * # AboutCtrl
  * Controller of the workshopApp
  */
-wApp.controller('AboutCtrl', function ($scope) {
+    wApp.controller('AboutCtrl', function ($scope) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',

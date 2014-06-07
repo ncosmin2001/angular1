@@ -20,9 +20,9 @@ var wApp = angular.module('workshopApp', [
     $routeProvider
       .when('/', {
         templateUrl: 'views/login.html',
-        controller: 'MainCtrl'
+        controller: 'loginCtrl'
       })
-	  .when('/main', {
+      .when('/main', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
@@ -37,4 +37,18 @@ var wApp = angular.module('workshopApp', [
       .otherwise({
         redirectTo: '/'
       });
-  });
+  })/*.run( function($rootScope, $location) {
+
+    // register listener to watch route changes
+    $rootScope.$on( "$routeChangeStart", function(event, next, current) {
+      if ( $rootScope.loggedUser == null ) {
+        // no logged user, we should be going to #login
+        if ( next.$route.templateUrl == "views/login.html" ) {
+          // already going to #login, no redirect needed
+        } else {
+          // not going to #login, we should redirect now
+          $location.path( "/" );
+        }
+      }         
+    });
+ });*/
