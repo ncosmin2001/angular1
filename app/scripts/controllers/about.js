@@ -17,15 +17,6 @@
   
  
 
-//    wApp.controller('controller1', ['$scope', '$http',
-//  function ($scope, $http) {
-//    $http.get('/angular1/ws/repos/skillsRepo.php').success(function(data) {
-//      $scope.phones = data;
-//    });
-//
-//    $scope.orderProp = 'placeName';
-//  }]);
-//  
   'use strict';
  
  /**
@@ -39,43 +30,46 @@
  wApp.controller('controller1', ['$scope', '$http',
    function ($scope, $http,$event) {
      $http.get('/angular1/ws/repos/skillsRepo.php').success(function(data) {
-       $scope.phones = data;
+       $scope.skills = data;
      });
  
+     $scope.showSkills = false;
+     $scope.showSkillsList = function(){
+         $scope.showSkills = true;
+     };
+     
      $scope.orderProp = 'name';
      $scope.keyPressed = function(event){
          switch(event.which)
          {
              case 40://arrow down
-                 //obSelected = $("ul.phones>li.select");
-                 if($("ul.phones>li.select").length==0)
+                 if($("ul.skills>li.select").length==0)
                  {
-                     $("ul.phones>li:first").addClass("select");
+                     $("ul.skills>li:first").addClass("select");
                      
                  }else{
-                     if($("ul.phones>li.select").index() == ($("ul.phones>li").length-1)){
-                        $("ul.phones>li.select").removeClass("select");
-                        $("ul.phones>li").first().addClass("select");                       
+                     if($("ul.skills>li.select").index() == ($("ul.skills>li").length-1)){
+                        $("ul.skills>li.select").removeClass("select");
+                        $("ul.skills>li").first().addClass("select");                       
                      }else{
-                        $("ul.phones>li.select").removeClass("select").next().addClass("select");
+                        $("ul.skills>li.select").removeClass("select").next().addClass("select");
                      }
                  }
-                 $('#skill_val').val($.trim($("ul.phones>li.select").html()));
+                 $('#skill_val').val($.trim($("ul.skills>li.select").html()));
                  break;
              case 38://arrow up
-                 //obSelected = $("ul.phones>li.select");
-                 if($("ul.phones>li.select").length==0)
+                 if($("ul.skills>li.select").length==0)
                  {
-                     $("ul.phones>li:first").addClass("select");                     
+                     $("ul.skills>li:first").addClass("select");                     
                  }else{
-                     if($("ul.phones>li.select").index() == 0){
-                        $("ul.phones>li.select").removeClass("select");
-                        $("ul.phones>li").last().addClass("select");                       
+                     if($("ul.skills>li.select").index() == 0){
+                        $("ul.skills>li.select").removeClass("select");
+                        $("ul.skills>li").last().addClass("select");                       
                      }else{
-                        $("ul.phones>li.select").removeClass("select").prev().addClass("select");
+                        $("ul.skills>li.select").removeClass("select").prev().addClass("select");
                      }
                  }
-                 $('#skill_val').val($.trim($("ul.phones>li.select").html()));
+                 $('#skill_val').val($.trim($("ul.skills>li.select").html()));
                  break;
          }
          console.log(event);
