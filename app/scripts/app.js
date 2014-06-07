@@ -8,8 +8,7 @@
  *
  * Main module of the application.
  */
-angular
-  .module('workshopApp', [
+var wApp = angular.module('workshopApp', [
     'ngAnimate',
     'ngCookies',
     'ngResource',
@@ -21,7 +20,7 @@ angular
     $routeProvider
       .when('/', {
         templateUrl: 'views/login.html',
-        controller: 'MainCtrl'
+        controller: 'loginCtrl'
       })
 	  .when('/profile', {
         templateUrl: 'views/profile.html',
@@ -35,7 +34,25 @@ angular
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl'
       })
+      .when('/about', {
+        templateUrl: 'views/autocomplete.html',
+        controller: 'AboutCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
-  });
+  })/*.run( function($rootScope, $location) {
+
+    // register listener to watch route changes
+    $rootScope.$on( "$routeChangeStart", function(event, next, current) {
+      if ( $rootScope.loggedUser == null ) {
+        // no logged user, we should be going to #login
+        if ( next.$route.templateUrl == "views/login.html" ) {
+          // already going to #login, no redirect needed
+        } else {
+          // not going to #login, we should redirect now
+          $location.path( "/" );
+        }
+      }         
+    });
+ });*/

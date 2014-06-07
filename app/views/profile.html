@@ -1,0 +1,21 @@
+<h2>My profile</h2>
+<form role="form" class="form-horizontal">
+	<div class="form-group">
+		<input type="text" placeholder="Skill" class="form-control" id="searchSkill" ng-model="filterSkill"></input>
+		<div>
+			<span ng-repeat="listskill in allSkill | filter : filterSkill">{{listskill}} </span>
+		</div>
+	</div>
+	
+	<!-- skill list -->
+	<ul>
+		<li ng-repeat="skill in myskills">
+			<p>{{skill.skillName}} : {{skill.skillLvl}} <a href="#">edit</a>/<a href="#">delete</a></p>
+			<input ng-show="skill.edit" type="range" name="lvl" min="1" max="5" value="{{skill.skillLvl}}">						
+		</li>
+	</ul>
+	
+	<div class="form-group">
+		<button type="submit" class="btn btn-default">Update</button>
+	</div>
+</form>

@@ -1,0 +1,16 @@
+  <div data-ng-app="app1">
+        <div>
+     <input class="form-control" ng-model="query" type="text" name="input" placeholder="Enter..." />
+    
+            <div ng-controller="controller1">
+                
+                 <ul class="phones">
+                         <li class="autoc" ng-repeat="phone in phones | filter:query | orderBy:orderProp | limitTo:5"  ng-model="selected" >
+      {{phone.placeName}}
+                        </li>
+                        
+                 </ul>
+                
+            </div>
+        </div>
+    </div>
