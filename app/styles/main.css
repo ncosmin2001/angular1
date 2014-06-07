@@ -76,4 +76,16 @@ body {
   .jumbotron {
     border-bottom: 0;
   }
+  
+  .autoc{
+    list-style:none;
+    padding: 2px;
+    margin-left: -40px;
+    display:block;
+    
+}
+.select{
+    background-color: #E9E9E8;
+}
+  
 }

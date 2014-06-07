@@ -1,6 +1,6 @@
 <?php
 
-include('entities\skills.php');
+include('..\entities\skills.php');
 include('..\database.php');
 
 class SkillsRepo{
@@ -9,7 +9,7 @@ class SkillsRepo{
     {
         $database = new Database();
         $sth = $database->dbh->query('Select * from skills');
-        $result = $sth->fetch();
+        $result = $sth->fetchAll();
         return $result;
     }
 }

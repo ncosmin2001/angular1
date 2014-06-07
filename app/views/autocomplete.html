@@ -1,0 +1,15 @@
+  <div data-ng-app="app1">
+        <div>
+    
+            <div ng-controller="controller1">
+             <input id="skill_val" class="form-control" ng-model="query"  ng-keydown="keyPressed($event)" type="text" name="input" placeholder="Enter..." value="selectedText"/>   
+                 <ul class="phones">
+                         <li class="autoc" ng-repeat="phone in phones | filter:query | orderBy:orderProp | limitTo:5"  ng-model="selected" >
+      {{phone.name}}
+                        </li>
+                        
+                 </ul>
+                
+            </div>
+        </div>
+    </div>
