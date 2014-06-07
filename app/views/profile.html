@@ -10,12 +10,12 @@
 	<!-- skill list -->
 	<ul>
 		<li ng-repeat="skill in myskills">
-			<p>{{skill.skillName}} : {{skill.skillLvl}} <a href="#">edit</a>/<a href="#">delete</a></p>
-			<input ng-show="skill.edit" type="range" name="lvl" min="1" max="5" value="{{skill.skillLvl}}">						
+			<p>{{skill.skillName}} : {{skill.skillLvl}} <a href="" ng-click="editSkill({{$index}});">edit</a> / <a href="" ng-click="deleteSkill({{$index}});">delete</a></p>
+			<input ng-show="skill.edit" ng-model="skill.skillLvl" type="range" min="1" max="5" step="1" value="{{skill.skillLvl}}">						
 		</li>
 	</ul>
 	
 	<div class="form-group">
-		<button type="submit" class="btn btn-default">Update</button>
+		<button ng-click ="updateMySkills();" type="submit" class="btn btn-default">Update</button>
 	</div>
 </form>
