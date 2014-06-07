@@ -5,13 +5,24 @@ include('factory.php');
 
 $database = new Database();
 
-$credentials = filter_input(INPUT_POST, 'credentials', FILTER_SANITIZE_SPECIAL_CHARS);
-$credentials = json_decode($credentials);
+$postdata = file_get_contents("php://input");
+$request = json_decode($postdata);
+$username = $request->username;
+$password = $request->password;
 
-$query = "Select * from users where username='".$credentials['username']."' and password='".$credentials['password']."'";
+$query = "Select * from users where username='".$username."' and password='".$password."'";
 $sth = $database->dbh->query($query);
 $result = $sth->fetch();
 
 $factory = new Factory('users',$result);
 
-var_dump($factory->objectGenerator());
+if($result)
+{
+    echo(json_encode($result));
+}
+else
+{
+    
+}
+
+//$factory->objectGenerator());
