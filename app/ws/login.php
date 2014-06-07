@@ -21,7 +21,7 @@ if($result)
     $response['logged'] = true;
     $response['idUser'] = $result['id'];
     $response['username'] = $result['username'];
-    $response['role'] = $result['Role'];
+    $response['role'] = $result['role'];
 }
 else
 {
@@ -32,8 +32,9 @@ else
 }
 
 $_SESSION['logged'] = $response['logged'];
+$_SESSION['idUser'] = $result['id'];
 $_SESSION['username'] = $result['username'];
-$_SESSION['role'] = $result['Role'];
+$_SESSION['role'] = $result['role'];
 echo(json_encode($response));
 
 //$factory->objectGenerator());
