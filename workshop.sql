@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jun 06, 2014 at 05:36 PM
+-- Generation Time: Jun 07, 2014 at 08:54 AM
 -- Server version: 5.5.16
 -- PHP Version: 5.3.8
 
@@ -19,6 +19,20 @@ SET time_zone = "+00:00";
 --
 -- Database: `skills`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `roles`
+--
+
+CREATE TABLE IF NOT EXISTS `roles` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `IdUser` int(11) NOT NULL,
+  `Role` tinyint(4) NOT NULL,
+  PRIMARY KEY (`Id`),
+  UNIQUE KEY `IdUser` (`IdUser`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -319,6 +333,28 @@ CREATE TABLE IF NOT EXISTS `users` (
   `username` varchar(50) DEFAULT NULL,
   `password` varchar(500) DEFAULT NULL,
   PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `firstname`, `lastname`, `location`, `username`, `password`) VALUES
+(1, 'Gere', 'Arpad', 'Cluj Napoca', 'arpi', '12345'),
+(2, 'Pavel', 'Stratan', 'Alba Iulia', 'pavelescu', '12345');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users_skills`
+--
+
+CREATE TABLE IF NOT EXISTS `users_skills` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `IdUser` int(11) NOT NULL,
+  `IdSkill` int(11) NOT NULL,
+  `Weight` tinyint(4) NOT NULL,
+  PRIMARY KEY (`Id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --
