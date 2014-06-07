@@ -18,4 +18,20 @@ angular.module('workshopApp')
     ];
 	$scope.allSkill = ['PHP','HTML',"JavaScript","C#","C++","Delphi","Java","AngularJS","NodeJS","Backbone","Simfony","Drupal"];
 	
+	$scope.editSkill = function(index){
+		$scope.myskills[index].edit = true;
+	};
+	
+	$scope.deleteSkill = function(index){
+		if(confirm('Do you really want to remove this skill?')){
+			$scope.myskills.splice(index,1);
+		}		
+	};
+	
+	$scope.updateMySkills = function(){
+		for(var i=0;i<$scope.myskills.length; i++){
+			$scope.myskills[i].edit = false;
+		}
+		//commit modifications to server
+	};
   });
