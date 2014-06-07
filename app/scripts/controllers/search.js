@@ -1,24 +1,4 @@
-'use strict';
-
-/**
- * @ngdoc function
- * @name workshopApp.controller:AboutCtrl
- * @description
- * # AboutCtrl
- * Controller of the workshopApp
- */
-    wApp.controller('AboutCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
-  
- 
-
   'use strict';
- 
  /**
  + * @ngdoc function
  + * @name app1.controller:controller1
@@ -72,6 +52,5 @@
                  $('#skill_val').val($.trim($("ul.skills>li.select").html()));
                  break;
          }
-         console.log(event);
      };
    }]);
