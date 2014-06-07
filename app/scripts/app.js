@@ -8,8 +8,7 @@
  *
  * Main module of the application.
  */
-angular
-  .module('workshopApp', [
+var wApp = angular.module('workshopApp', [
     'ngAnimate',
     'ngCookies',
     'ngResource',
@@ -29,6 +28,10 @@ angular
       })
       .when('/about', {
         templateUrl: 'views/about.html',
+        controller: 'AboutCtrl'
+      })
+      .when('/about', {
+        templateUrl: 'views/autocomplete.html',
         controller: 'AboutCtrl'
       })
       .otherwise({
